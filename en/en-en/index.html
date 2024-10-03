@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <title>Independent Print System</title>
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <script type="text/javascript" src="static/js/jquery.min.js"></script>
+    <style type="text/css">
+        * {
+            font-size: 16px;
+            font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+        }
+
+        .my-out {
+            border: 2px;
+            border-color: #E0ECFF;
+            border-style: dashed;
+            width: 95%;
+            height: 550px;
+            margin: 3%;
+            margin-top: 1.5%;
+            padding: 1%;
+        }
+
+        .my-top-btn-div {
+            margin-right: 2%;
+            margin-top: 2%;
+        }
+
+        .my-top-btn-div .btn {
+            width: 70px;
+        }
+
+        .my-text-blue {
+            color: #4AC2C0;
+        }
+
+        .my-title {
+            letter-spacing: 6px;
+            font-weight: bold;
+        }
+    </style>
+    <script>
+
+        $(function () {
+            var language = 'en';
+            if(language ==''|| language ==null){
+                language ='zh';
+            }else if( language !='zh'){
+                $(".my-title").css("letter-spacing","normal");
+            }
+            $(".my-top-btn-div .btn").removeClass("active");
+            $("#" + language).addClass("active");
+        });
+
+        function goLang(lang) {
+        if (lang === 'en') {
+            // 当前页面不做跳转
+            return;
+        } else if (lang === 'zh') {
+            // 跳转到中文页面
+            window.location.href = '/en/en-zh/index.html';
+        }
+    }
+    </script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="my-top-btn-div pull-right">
+            <div aria-label="..." class="btn-group" role="group">
+                <button class="btn btn-primary active" id="zh" onclick="goLang('zh')" type="button">中&nbsp;&nbsp;文
+                </button>
+                <button class="btn btn-danger" id="en" onclick="goLang('en')" type="button">English</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="my-out">
+            <div class="text-center">
+                <h2 class="my-text-blue my-title">Information Verfied</h2>
+            </div>
+            <div class="row my-font-row" style="margin-top: 20px;">
+                <div class="col-xs-4 col-md-4">
+                    <div class="my-font-lable pull-right">Student ID:</div>
+                </div>
+                <div class="col-xs-8 col-md-8">
+                    <div class="my-font-content text-primary pull-left">1752124</div>
+                </div>
+            </div>
+            <div class="row my-font-row">
+                <div class="col-xs-4 col-md-4">
+                    <div class="my-font-lable pull-right">Name:</div>
+                </div>
+                <div class="col-xs-8 col-md-8">
+                    <div class="my-font-content text-primary pull-left">朴雪</div>
+                </div>
+            </div>
+            <div class="row my-font-row">
+                <div class="col-xs-4 col-md-4">
+                    <div class="my-font-lable pull-right">Print Time:</div>
+                </div>
+                <div class="col-xs-8 col-md-8">
+                    <div class="my-font-content text-primary pull-left">2021-06-23 21:05:16</div>
+                </div>
+            </div>
+            <div class="row my-font-row">
+                <div class="col-xs-4 col-md-4">
+                    <div class="my-font-lable pull-right">File Name:</div>
+                </div>
+                <div class="col-xs-8 col-md-8">
+                    <div class="my-font-content text-primary pull-left">Undergraduate Student's Academic Record</div>
+                </div>
+            </div>
+            <div class="row text-center" style="width: 100%;margin-top:150px;padding-left: 20px">
+                <p style="color: #adadad">Valid document. Please click here for more information.</p>
+            </div>
+            <div class="row text-center" style="width: 100%;padding-left: 30px">
+                <div class="my-font-content text-primary"><a href="http://jwc.tongji.edu.cn/index.php?classid=7173&newsid=592&t=show">Grading System of Tongji University</a></div>
+            </div>
+            <div class="row text-center" style="width: 100%;margin-top: 30px;padding-left: 20px">
+                <button class="btn btn-primary btn-lg" onclick="window.location.href='../en-transcript.html';" style="width: 180px;background-color: #4AC2C0; color: white;border-color: #4AC2C0" type="button">View Details</button>
+            </div>
+        </div>
+    </div>
+    <form id="picViewForm" method="post" action="/zzfw-app/fwrz/details.do;jsessionid=714B984CD11BEA28D8342BCD6492ABC8">
+        <input name="pageNum" type="hidden" value="0">
+    </form>
+</div>
+
+	
+</body></html>
